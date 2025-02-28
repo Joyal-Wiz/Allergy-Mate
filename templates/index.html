@@ -1,0 +1,201 @@
+{% include 'public-header.html' %}
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Cook Safe, <br>Eat Delicious</h1>
+            <p>Discover personalized recipes tailored to your dietary restrictions. Never worry about allergens in your meals again.</p>
+            <a href="/register" class="btn hero-btn">Start Your Journey <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="hero-image">
+            <div class="hero-image-container">
+                <img src="/static/img/T111.png" alt="Delicious allergy-free food">
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about-section">
+        <h2 class="section-title">How It Works</h2>
+        <p>Our platform makes finding allergy-safe recipes simple and enjoyable.</p>
+        
+        <div class="step-cards">
+            <div class="step-card animate-fade-in-up">
+                <div class="step-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>Enter Your Allergies</h3>
+                <p>Tell us what ingredients you need to avoid, and we'll customize your experience accordingly.</p>
+            </div>
+            
+            <div class="step-card animate-fade-in-up" style="animation-delay: 0.2s;">
+                <div class="step-icon">
+                    <i class="fas fa-carrot"></i>
+                </div>
+                <h3>Add Available Ingredients</h3>
+                <p>List what you have in your kitchen, and we'll suggest recipes you can make right now.</p>
+            </div>
+            
+            <div class="step-card animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="step-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Get Personalized Recipes</h3>
+                <p>Discover delicious meals that are safe for you to eat and match your preferences.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="recipes" class="featured-recipes">
+        <h2 class="section-title">Popular Allergy-Free Recipes</h2>
+        <p>Explore our most loved recipes that cater to various dietary restrictions.</p>
+        
+        <div class="recipe-cards">
+            <div class="recipe-card animate-fade-in">
+                <div class="recipe-image">
+                    <img src="/static/img/Pasta.jpg" alt="Gluten-Free Pasta">
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Gluten-Free Pasta Primavera</h3>
+                    <div class="recipe-tags">
+                        <span class="tag">Gluten-Free</span>
+                        <span class="tag">Dairy-Free</span>
+                    </div>
+                    <p>A delicious pasta dish loaded with seasonal vegetables.</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Recipe</a>
+                </div>
+            </div>
+            
+            <div class="recipe-card animate-fade-in" style="animation-delay: 0.2s;">
+                <div class="recipe-image">
+                    <img src="/static/img/Chocolate.jpg" alt="Nut-Free Brownies">
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Nut-Free Chocolate Brownies</h3>
+                    <div class="recipe-tags">
+                        <span class="tag">Nut-Free</span>
+                        <span class="tag">Kid-Friendly</span>
+                    </div>
+                    <p>Rich and fudgy brownies without any nuts or nut products.</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Recipe</a>
+                </div>
+            </div>
+            
+            <div class="recipe-card animate-fade-in" style="animation-delay: 0.4s;">
+                <div class="recipe-image">
+                    <img src="/static/img/Berry.jpg" alt="Dairy-Free Smoothie">
+                </div>
+                <div class="recipe-content">
+                    <h3 class="recipe-title">Dairy-Free Berry Smoothie</h3>
+                    <div class="recipe-tags">
+                        <span class="tag">Dairy-Free</span>
+                        <span class="tag">Vegan</span>
+                    </div>
+                    <p>A refreshing smoothie packed with antioxidants and flavor.</p>
+                    <a href="#" class="btn btn-primary" style="margin-top: 1rem;">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="allergies" class="cta-section">
+        <h2>Ready to Find Your Perfect Recipes?</h2>
+        <p>Join thousands of users who have discovered the joy of worry-free cooking. Our platform personalizes recipes based on your specific dietary needs.</p>
+        <a href="/allergy-input" class="btn hero-btn">Enter Your Allergies <i class="fas fa-arrow-right"></i></a>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Allergy-Free Recipes</span>
+                </div>
+                <p>Our mission is to make cooking safe and enjoyable for everyone, regardless of dietary restrictions.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#recipes">Recipes</a></li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><a href="/allergy-input">Enter Allergies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="link-group">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="link-group">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Gluten-Free</a></li>
+                        <li><a href="#">Dairy-Free</a></li>
+                        <li><a href="#">Nut-Free</a></li>
+                        <li><a href="#">Egg-Free</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Allergy-Free Recipes. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.animate-fade-in, .animate-fade-in-up');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            elements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

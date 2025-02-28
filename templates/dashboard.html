@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+    <h1>Welcome, {{ session['name'] }}!</h1>
+
+    <h2>Recommended Recipes</h2>
+
+    <!-- Category Filter -->
+    <form method="POST" class="filter-form">
+        <label for="category">Filter by Category:</label>
+        <select name="category" onchange="this.form.submit()">
+            <option value="All" {% if selected_category == 'All' %}selected{% endif %}>All</option>
+            <option value="Breakfast" {% if selected_category == 'Breakfast' %}selected{% endif %}>Breakfast</option>
+            <option value="Lunch" {% if selected_category == 'Lunch' %}selected{% endif %}>Lunch</option>
+            <option value="Dinner" {% if selected_category == 'Dinner' %}selected{% endif %}>Dinner</option>
+        </select>
+    </form>
+
+    <div class="recipe-container">
+        {% for recipe in recipes %}
+            <div class="recipe-card">
+                <h3>{{ recipe['name'] }}</h3>
+                <p><strong>Ingredients:</strong> {{ recipe['ingredients'] }}</p>
+                <p><strong>Instructions:</strong> {{ recipe['instructions'] }}</p>
+
+                <!-- Rating, Comment, and Save Form -->
+                <form action="{{ url_for('rate_recipe') }}" method="POST">
+                    <input type="hidden" name="recipe_id" value="{{ recipe['id'] }}">
+                    
+                    <!-- Rating -->
+                    <label>Rate this Recipe:</label>
+                    <select name="rating">
+                        <option value="1">⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                    </select>
+
+                    <!-- Comment -->
+                    <textarea name="comment" placeholder="Leave a comment..." required></textarea>
+
+                    <!-- Save Recipe Checkbox -->
+                    <label><input type="checkbox" name="save"> ❤️ Save Recipe</label>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="comment-btn">Submit</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+    {% for recipe in recipes %}
+    <div class="recipe-card">
+        <h3>{{ recipe['name'] }}</h3>
+        <p><strong>Ingredients:</strong> {{ recipe['ingredients'] }}</p>
+        <p><strong>Instructions:</strong> {{ recipe['instructions'] }}</p>
+
+        {% if recipe['allergy_message'] %}
+            <p style="color: red;"><strong>Warning:</strong> {{ recipe['allergy_message'] }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

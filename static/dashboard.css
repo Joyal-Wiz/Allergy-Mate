@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Recipe Cards */
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.recipe-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px;
+    width: 50%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: scale(1.02);
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Ingredients & Instructions */
+p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Form Styling */
+form {
+    margin-top: 15px;
+}
+
+/* Rating Dropdown */
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Comment Box */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: vertical;
+}
+
+/* Save Recipe (Checkbox) */
+.save-recipe {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.save-recipe input {
+    margin-right: 8px;
+    transform: scale(1.2);
+}
+
+/* Submit Button */
+.submit-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+/* Filter Dropdown */
+label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form select {
+    margin-left: 10px;
+}
+
+/* Logout Button */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+a:hover {
+    background: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .recipe-card {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .recipe-card {
+        width: 90%;
+    }
+
+    select, textarea {
+        width: 100%;
+    }
+}
