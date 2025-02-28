@@ -1,73 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/static/dashboard.css">
-</head>
-<body>
-    <h1>Welcome, {{ session['name'] }}!</h1>
+{% include 'main-header.html' %}
 
-    <h2>Recommended Recipes</h2>
 
-    <!-- Category Filter -->
-    <form method="POST" class="filter-form">
-        <label for="category">Filter by Category:</label>
-        <select name="category" onchange="this.form.submit()">
-            <option value="All" {% if selected_category == 'All' %}selected{% endif %}>All</option>
-            <option value="Breakfast" {% if selected_category == 'Breakfast' %}selected{% endif %}>Breakfast</option>
-            <option value="Lunch" {% if selected_category == 'Lunch' %}selected{% endif %}>Lunch</option>
-            <option value="Dinner" {% if selected_category == 'Dinner' %}selected{% endif %}>Dinner</option>
-        </select>
-    </form>
-
-    <div class="recipe-container">
-        {% for recipe in recipes %}
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1>Welcome, {{ session['name'] }}!</h1>
+            <p>Discover personalized recipes tailored to your taste preferences and dietary needs. Explore our collection, save your favorites, and start your culinary journey today.</p>
+        </div>
+        
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <form method="POST" class="filter-form">
+                <label for="category">Filter by Category:</label>
+                <select name="category" onchange="this.form.submit()">
+                    <option value="All" {% if selected_category == 'All' %}selected{% endif %}>All Categories</option>
+                    <option value="Breakfast" {% if selected_category == 'Breakfast' %}selected{% endif %}>Breakfast</option>
+                    <option value="Lunch" {% if selected_category == 'Lunch' %}selected{% endif %}>Lunch</option>
+                    <option value="Dinner" {% if selected_category == 'Dinner' %}selected{% endif %}>Dinner</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Vegetarian">Vegetarian</option>
+                    <option value="Quick Meals">Quick Meals</option>
+                    <option value="Healthy">Healthy Options</option>
+                </select>
+            </form>
+        </div>
+        
+        <!-- Recipe Container -->
+        <div class="recipe-container">
+            {% for recipe in recipes %}
             <div class="recipe-card">
-                <h3>{{ recipe['name'] }}</h3>
-                <p><strong>Ingredients:</strong> {{ recipe['ingredients'] }}</p>
-                <p><strong>Instructions:</strong> {{ recipe['instructions'] }}</p>
-
-                <!-- Rating, Comment, and Save Form -->
-                <form action="{{ url_for('rate_recipe') }}" method="POST">
-                    <input type="hidden" name="recipe_id" value="{{ recipe['id'] }}">
+                <!-- <div class="recipe-image">
+                    <img src="" alt="{{ recipe['name'] }}">
+                    <div class="category-badge">{{ recipe.get('category', 'Recipe') }}</div>
+                </div> -->
+                
+                <div class="recipe-content">
+                    <h3>{{ recipe['name'] }}</h3>
                     
-                    <!-- Rating -->
-                    <label>Rate this Recipe:</label>
-                    <select name="rating">
-                        <option value="1">⭐</option>
-                        <option value="2">⭐⭐</option>
-                        <option value="3">⭐⭐⭐</option>
-                        <option value="4">⭐⭐⭐⭐</option>
-                        <option value="5">⭐⭐⭐⭐⭐</option>
-                    </select>
-
-                    <!-- Comment -->
-                    <textarea name="comment" placeholder="Leave a comment..." required></textarea>
-
-                    <!-- Save Recipe Checkbox -->
-                    <label><input type="checkbox" name="save"> ❤️ Save Recipe</label>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="comment-btn">Submit</button>
-                </form>
+                    <div class="recipe-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>{{ recipe.get('prep_time', '30 min') }}</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-fire"></i>
+                            <span>{{ recipe.get('calories', '350') }} cal</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-utensils"></i>
+                            <span>{{ recipe.get('servings', '4') }} servings</span>
+                        </div>
+                    </div>
+                    
+                    <div class="recipe-details">
+                        <p><strong>Ingredients:</strong> {{ recipe['ingredients'] }}</p>
+                        <p><strong>Instructions:</strong> {{ recipe['instructions'] }}</p>
+                        
+                        {% if recipe.get('allergy_message') %}
+                        <div class="allergy-warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span><strong>Allergy Alert:</strong> {{ recipe['allergy_message'] }}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="recipe-actions">
+                        <form action="{{ url_for('rate_recipe') }}" method="POST" class="rating-form">
+                            <input type="hidden" name="recipe_id" value="{{ recipe['id'] }}">
+                            
+                            <div class="rating-row">
+                                <span class="rating-label">Rate:</span>
+                                <div class="star-rating">
+                                    <input type="radio" id="star5-{{ recipe['id'] }}" name="rating" value="5">
+                                    <label for="star5-{{ recipe['id'] }}"><i class="fas fa-star"></i></label>
+                                    
+                                    <input type="radio" id="star4-{{ recipe['id'] }}" name="rating" value="4">
+                                    <label for="star4-{{ recipe['id'] }}"><i class="fas fa-star"></i></label>
+                                    
+                                    <input type="radio" id="star3-{{ recipe['id'] }}" name="rating" value="3">
+                                    <label for="star3-{{ recipe['id'] }}"><i class="fas fa-star"></i></label>
+                                    
+                                    <input type="radio" id="star2-{{ recipe['id'] }}" name="rating" value="2">
+                                    <label for="star2-{{ recipe['id'] }}"><i class="fas fa-star"></i></label>
+                                    
+                                    <input type="radio" id="star1-{{ recipe['id'] }}" name="rating" value="1">
+                                    <label for="star1-{{ recipe['id'] }}"><i class="fas fa-star"></i></label>
+                                </div>
+                            </div>
+                            
+                            <textarea name="comment" placeholder="Share your thoughts on this recipe..."></textarea>
+                            
+                            <div class="save-recipe">
+                                <input type="checkbox" id="save-{{ recipe['id'] }}" name="save">
+                                <label for="save-{{ recipe['id'] }}">
+                                    <i class="fas fa-heart heart-icon"></i>
+                                    <span>Save to My Cookbook</span>
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="comment-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Submit Review</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-    {% for recipe in recipes %}
-    <div class="recipe-card">
-        <h3>{{ recipe['name'] }}</h3>
-        <p><strong>Ingredients:</strong> {{ recipe['ingredients'] }}</p>
-        <p><strong>Instructions:</strong> {{ recipe['instructions'] }}</p>
-
-        {% if recipe['allergy_message'] %}
-            <p style="color: red;"><strong>Warning:</strong> {{ recipe['allergy_message'] }}</p>
-        {% endif %}
-    </div>
-{% endfor %}
-
-
-    <a href="{{ url_for('logout') }}">Logout</a>
-</body>
-</html>
+    
+    {% include 'main-footer.html' %}

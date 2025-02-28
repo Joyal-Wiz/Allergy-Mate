@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePlate - Allergy-Friendly Recipes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="/static/css/org-index.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-utensils" style="color: var(--secondary); font-size: 1.8rem;"></i>
+            <div class="logo-text">Safe<span>Plate</span></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Allergies</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="/login">
+                <button class="btn btn-outline">Login</button>
+            </a>
+            <a href="/register">
+                <button class="btn btn-fill">Sign Up</button>
+            </a>
+            
+        </div>
+
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Discover <span>Allergy-Free</span> Recipes Tailored Just For You</h1>
+                <p class="hero-description">SafePlate helps you find safe and delicious recipes by filtering out ingredients you're allergic to. Personalize your experience by specifying your allergies and their severity levels.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-fill">Get Started</button>
+                    <button class="btn btn-outline">Explore Recipes</button>
+                </div>
+                
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-bar" placeholder="Search for recipes or ingredients...">
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/static/img/hero1.png" alt="Allergy-friendly meals">
+                <div class="floating-icons">
+                    <div class="floating-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <div class="floating-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <div class="floating-icon">
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <div class="floating-icon">
+                        <i class="fas fa-egg"></i>
+                    </div>
+                    <div class="floating-icon">
+                        <i class="fas fa-carrot"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-title">Key Features</h2>
+        <p class="section-subtitle">Discover how SafePlate makes cooking safer and more enjoyable for people with food allergies</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="feature-title">Personalized Allergy Profiles</h3>
+                <p class="feature-description">Specify your allergies and their severity levels to create a customized experience that keeps you safe.</p>
+            </div>
+            
+            <!-- <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-filter"></i>
+                </div>
+                <h3 class="feature-title">Smart Recipe Filtering</h3>
+                <p class="feature-description">Our intelligent algorithm suggests recipes based on your allergies and available ingredients.</p>
+            </div> -->
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h3 class="feature-title">Alternative Ingredients</h3>
+                <p class="feature-description">Get suggestions for alternative ingredients to make any recipe suitable for your dietary needs.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3 class="feature-title">Recipe Library</h3>
+                <p class="feature-description">Access a vast collection of allergy-friendly recipes from various cuisines around the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Get started with SafePlate in just a few simple steps</p>
+        
+        <div class="steps-container">
+            <div class="steps-line"></div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Create Account</h3>
+                    <p class="step-description">Sign up for a free account to access all features</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Set Allergies</h3>
+                    <p class="step-description">Specify your allergies and their severity levels</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Discover Recipes</h3>
+                    <p class="step-description">Browse safe recipes tailored to your needs</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Cook & Enjoy</h3>
+                    <p class="step-description">Prepare delicious meals without worry</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Enjoy Worry-Free Meals?</h2>
+            <p class="cta-description">Join thousands of users who have discovered the joy of safe cooking with SafePlate.</p>
+            <a href="#" class="cta-button">Create Free Account</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">
+                    <i class="fas fa-utensils" style="color: var(--secondary);"></i>
+                    Safe<span>Plate</span>
+                </div>
+                <p class="footer-description">Making allergy-friendly cooking accessible and enjoyable for everyone, one recipe at a time.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Recipe Database</a></li>
+                    <li><a href="#">Allergy Information</a></li>
+                    <li><a href="#">Nutrition Guide</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-title">Contact Us</h3>
+                <ul class="footer-links">
+                    <li><a href="#">support@safeplate.com</a></li>
+                    <li><a href="#">+1 (555) 123-4567</a></li>
+                    <li><a href="#">123 Recipe Street, Food City</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 SafePlate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scroll');
+                    } else {
+                        navbar.classList.remove('navbar-scroll');
+                        }
+                        });
+                        });
+                        </script>
+
+</body>
+</html>

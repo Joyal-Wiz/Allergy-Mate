@@ -16,6 +16,10 @@ mysql = MySQL(app)
 
 @app.route('/')
 def home():
+    return render_template('org-index.html')
+
+@app.route('/home')
+def index():
     return render_template('index.html')
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -56,7 +60,7 @@ def login():
             session['id'] = account['id']
             session['name'] = account['name']
             flash('Login successful!', 'success')
-            return redirect(url_for('home'))
+            return render_template('index.html')
         else:
             flash('Invalid email or password!', 'danger')    
     return render_template('login.html')
@@ -213,24 +217,13 @@ def add_comment():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 @app.route('/logout')
 def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('name', None)
     flash('You have been logged out.', 'success')
-    return redirect(url_for('login'))
+    return render_template('org-index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

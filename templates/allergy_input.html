@@ -1,48 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allergy Input</title>
+{% include 'main-header.html' %}
+
+
+</head>
+<body>
+    <link rel="stylesheet" href="/static/css/allergy-input.css">
+    
+    <div class="container">
+        <h2>Enter Your Allergy Information</h2>
+        
+        <form action="{{ url_for('allergy_input') }}" method="POST">
+            <div id="allergy-container">
+                <div class="allergy-item">
+                    <input type="text" name="allergies[]" placeholder="Enter allergy (e.g., Milk)" required>
+                    <label><input type="radio" name="intensity_0" value="basic" required> Basic</label>
+                    <label><input type="radio" name="intensity_0" value="medium" required> Medium</label>
+                    <label><input type="radio" name="intensity_0" value="high" required> High</label>
+                    <button type="button" onclick="removeField(this)">Remove</button>
+                </div>
+            </div>
+            
+            <button type="button" class="add-more" onclick="addAllergyField()">Add More Allergy</button>
+            
+            <div class="ingredients-section">
+                <label for="ingredients">Available ingredients at home:</label>
+                <input type="text" id="ingredients" name="ingredients" placeholder="e.g., rice, tomato, chicken (comma-separated)" required>
+            </div>
+            
+            <button type="submit">Save & Continue</button>
+        </form>
+    </div>
+    
+    {% include 'public-footer.html' %}
+    
     <script>
         function addAllergyField() {
             let container = document.getElementById("allergy-container");
             let div = document.createElement("div");
             div.classList.add("allergy-item");
-
+            
+            let index = container.children.length;
+            
             div.innerHTML = `
                 <input type="text" name="allergies[]" placeholder="Enter allergy (e.g., Milk)" required>
-                <label><input type="radio" name="intensity_${container.children.length}" value="basic" required> Basic</label>
-                <label><input type="radio" name="intensity_${container.children.length}" value="medium" required> Medium</label>
-                <label><input type="radio" name="intensity_${container.children.length}" value="high" required> High</label>
+                <label><input type="radio" name="intensity_${index}" value="basic" required> Basic</label>
+                <label><input type="radio" name="intensity_${index}" value="medium" required> Medium</label>
+                <label><input type="radio" name="intensity_${index}" value="high" required> High</label>
                 <button type="button" onclick="removeField(this)">Remove</button>
             `;
+            
             container.appendChild(div);
         }
 
         function removeField(button) {
-            button.parentElement.remove();
+            const item = button.parentElement;
+            item.style.opacity = "0";
+            item.style.transform = "translateX(20px)";
+            setTimeout(() => {
+                item.remove();
+            }, 300);
         }
-    </script>
-</head>
-<body>
-    <h2>Enter Your Allergy Information</h2>
-    
-    <form action="{{ url_for('allergy_input') }}" method="POST">
-        <div id="allergy-container">
-            <div class="allergy-item">
-                <input type="text" name="allergies[]" placeholder="Enter allergy (e.g., Milk)" required>
-                <label><input type="radio" name="intensity_0" value="basic" required> Basic</label>
-                <label><input type="radio" name="intensity_0" value="medium" required> Medium</label>
-                <label><input type="radio" name="intensity_0" value="high" required> High</label>
-            </div>
-        </div>
-        <button type="button" onclick="addAllergyField()">Add More Allergy</button>
         
-        <label for="ingredients">Available ingredients at home (comma-separated):</label>
-        <input type="text" id="ingredients" name="ingredients" placeholder="e.g., rice, tomato, chicken" required>
-
-        <button type="submit">Save & Continue</button>
-    </form>
+        // Add focus effect on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstInput = document.querySelector('input[type="text"]');
+            setTimeout(() => {
+                firstInput.focus();
+            }, 500);
+        });
+    </script>
 </body>
 </html>
+    {% include 'public-footer.html' %}
+    
+  

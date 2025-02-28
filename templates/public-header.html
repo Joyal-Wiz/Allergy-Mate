@@ -6,7 +6,7 @@
     <title>Welcome to Allergy-Free Recipes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-<link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
     <header>
@@ -21,12 +21,15 @@
                     <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
                     <li><a href="#recipes"><i class="fas fa-utensils"></i> Recipes</a></li>
                     <li><a href="#allergies"><i class="fas fa-notes-medical"></i> Allergies</a></li>
+                    <li><a href="/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="/allergy-input"><i class="fas fa-allergies"></i> Enter Allergies</a></li>
                 </ul>
             </nav>
-            
             <div class="auth-buttons">
-                <a href="/login" class="btn btn-secondary"><i class="fas fa-sign-in-alt"></i> Login</a>
-                <a href="/register" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-secondary"><i class="fas fa-sign-in-alt"></i> Logout</a>
+
+                <!-- <a href="/register" class="btn btn-primary"><i class="fas fa-user-plus"></i> Sign Up</a> -->
+                
             </div>
         </div>
     </header>
