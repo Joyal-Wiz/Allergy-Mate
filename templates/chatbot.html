@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Assistant</title>
+    <link rel="stylesheet" href="/static/css/chatbot.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>  
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <h1>Recipe<span>Assist</span></h1>
+            </div>
+            <div class="sidebar-info">
+                <div class="info-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>Allergy-Friendly</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-fire"></i>
+                    <span>Cooking Tips</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-list"></i>
+                    <span>Ingredient Substitutes</span>
+                </div>
+            </div>
+            <div class="footer-text">
+                <p>Discover recipes tailored to your dietary needs</p>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h2>Recipe Assistant</h2>
+                <p>Ask me for allergy-friendly recipes</p>
+            </div>
+            <div class="chat-container">
+                <div class="chat-box" id="chat-box">
+                    <div class="bot-message">
+                        <div class="message-content">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-text">
+                                <p>Hello! I'm your Recipe Assistant. Ask me for allergy-friendly recipes, cooking tips, or ingredient substitutes for dietary restrictions.</p>
+                            </div>
+                        </div>
+                        <div class="timestamp">Just now</div>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <div class="input-wrapper">
+                        <input type="text" id="user-input" placeholder="Type your message...">
+                        <button onclick="sendMessage()" id="send-button">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="suggestions">
+                        <span class="suggestion-pill" onclick="suggestQuery(this)">Gluten-free pasta recipes</span>
+                        <span class="suggestion-pill" onclick="suggestQuery(this)">Nut-free desserts</span>
+                        <span class="suggestion-pill" onclick="suggestQuery(this)">Dairy alternatives</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/chatbot.js"></script>
+</body>
+</html>
